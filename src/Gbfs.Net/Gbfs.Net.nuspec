@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Gbfs.Net</id>
+    <version>1.0.0</version>
+    <title>Gbfs.Net</title>
+    <authors>Apps team at Syncromatics</authors>
+    <owners>Apps team at Syncromatics</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Library to interact with General Bikeshare Feed Specification (GBFS) resources</description>
+    <copyright>Copyright 2017 Synromatics Corporation</copyright>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <dependencies>
+      <dependency id="RestEase" version="1.4.1" />
+      <dependency id="System.Net.Http" version="4.3.2" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\net46\Gbfs.Net.dll" target="lib\net46" />
+    <file src="bin\$configuration$\net46\Gbfs.Net.pdb" target="lib\net46" />
+    <file src="bin\$configuration$\netstandard1.3\Gbfs.Net.dll" target="lib\netstandard1.3" />
+    <file src="bin\$configuration$\netstandard1.3\Gbfs.Net.pdb" target="lib\netstandard1.3" />
+  </files>
+</package>
