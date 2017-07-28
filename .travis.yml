@@ -17,5 +17,4 @@ deploy:
   script:
     - ./build.sh -t Publish
   on:
-    tags: true
     all_branches: true
