@@ -12,6 +12,6 @@ namespace Gbfs.Net
         public string RegionId { get; set; }
         public string PostCode { get; set; }
         public string RentalMethods { get; set; }
-        public int Capacity { get; set; }
+        public int? Capacity { get; set; }
     }
 }

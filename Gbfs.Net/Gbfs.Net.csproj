@@ -1,6 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net46;netstandard1.1</TargetFrameworks>
+    <TargetFrameworks>net46;netstandard1.3</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="RestEase" Version="1.4.1" />

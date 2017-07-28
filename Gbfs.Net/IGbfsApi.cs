@@ -5,8 +5,8 @@ namespace Gbfs.Net
 {
     public interface IGbfsApi
     {
-        [Get("{url}")]
-        Task<ManifestResponse> GetManifest([Path(UrlEncode = false)] string url);
+        [Get]
+        Task<ManifestResponse> GetManifest();
 
         [Get("{url}")]
         Task<SystemInformationResponse> GetSystemInformation([Path(UrlEncode = false)] string url);

@@ -11,7 +11,7 @@ namespace Gbfs.Net
         public string Operator { get; set; }
         public string Url { get; set; }
         public string PurchaseUrl { get; set; }
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Timezone { get; set; }
