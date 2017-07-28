@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Gbfs.Net
 {
     public class Station
@@ -11,7 +13,7 @@ namespace Gbfs.Net
         public string CrossStreet { get; set; }
         public string RegionId { get; set; }
         public string PostCode { get; set; }
-        public string RentalMethods { get; set; }
+        public List<string> RentalMethods { get; set; }
         public int? Capacity { get; set; }
     }
 }
