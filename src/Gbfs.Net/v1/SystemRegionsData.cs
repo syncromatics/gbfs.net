@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Gbfs.Net.v1
 {
@@ -10,9 +11,7 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Array of region objects
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
-        public List<Region> Regions { get; set; }
+        [JsonProperty(Required = Required.Always)]
+        public List<Region> Regions { get; set; } = new List<Region>();
     }
 }

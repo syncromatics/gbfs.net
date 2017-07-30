@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Gbfs.Net.v1
 {
@@ -10,17 +11,13 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Unique identifier of a station.
         /// </summary>
-        /// <remarks>
-        /// This field is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string StationId { get; set; }
 
         /// <summary>
         /// Public name of the station
         /// </summary>
-        /// <remarks>
-        /// This field is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string Name { get; set; }
 
         /// <summary>
@@ -34,17 +31,13 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// The latitude of station. The field value must be a valid WGS 84 latitude in decimal degrees format. See: http://en.wikipedia.org/wiki/World_Geodetic_System, https://en.wikipedia.org/wiki/Decimal_degrees
         /// </summary>
-        /// <remarks>
-        /// This field is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public double Lat { get; set; }
 
         /// <summary>
         /// The longitude of station. The field value must be a valid WGS 84 longitude in decimal degrees format. See: http://en.wikipedia.org/wiki/World_Geodetic_System, https://en.wikipedia.org/wiki/Decimal_degrees
         /// </summary>
-        /// <remarks>
-        /// This field is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public double Lon { get; set; }
 
         /// <summary>
@@ -118,7 +111,7 @@ namespace Gbfs.Net.v1
         /// <remarks>
         /// This field is optional.
         /// </remarks>
-        public List<string> RentalMethods { get; set; }
+        public List<string> RentalMethods { get; set; } = new List<string>();
 
         /// <summary>
         /// Number of total docking points installed at this station, both available and unavailable

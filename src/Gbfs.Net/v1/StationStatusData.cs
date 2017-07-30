@@ -7,6 +7,6 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Array that contains one object per station in the system
         /// </summary>
-        public List<Status> Stations { get; set; }
+        public List<Status> Stations { get; set; } = new List<Status>();
     }
 }

@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Gbfs.Net.v1
 {
     public class Status
@@ -5,17 +7,13 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Unique identifier of a station (<see cref="StationInformation" />)
         /// </sumamry>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string StationId { get; set; }
 
         /// <summary>
         /// Number of bikes available for rental
         /// </sumamry>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public int NumBikesAvailable { get; set; }
 
         /// <summary>
@@ -30,9 +28,7 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Number of docks accepting bike returns.
         /// </sumamry>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public int NumDocksAvailable { get; set; }
 
         /// <summary>
@@ -46,33 +42,25 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Is the station currently on the street
         /// </sumamry>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public bool IsInstalled { get; set; }
 
         /// <summary>
         /// Is the station currently renting bikes (even if the station is empty, if it is set to allow rentals this value should be true)
         /// </sumamry>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public bool IsRenting { get; set; }
 
         /// <summary>
         /// Is the station accepting bike returns (if a station is full but would allow a return if it was not full then this value should be true)
         /// </sumamry>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public bool IsReturning { get; set; }
 
         /// <summary>
         /// Integer POSIX timestamp indicating the last time this station reported its status to the backend
         /// </sumamry>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public long LastReported { get; set; }
     }
 }

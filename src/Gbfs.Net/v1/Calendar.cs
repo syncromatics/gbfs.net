@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Gbfs.Net.v1
 {
     /// <summary>
@@ -8,17 +10,13 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Starting month for the system operations (1-12)
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public byte StartMonth { get; set; }
 
         /// <summary>
         /// Starting day for the system operations (1-31)
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public byte StartDay { get; set; }
 
         /// <summary>
@@ -32,17 +30,13 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Ending month for the system operations (1-12)
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public byte EndMonth { get; set; }
 
         /// <summary>
         /// Ending day for the system operations (1-31)
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public byte EndDay { get; set; }
 
         /// <summary>

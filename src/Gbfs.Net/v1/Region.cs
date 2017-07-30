@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Gbfs.Net.v1
 {
     /// <summary>
@@ -9,17 +11,13 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Unique identifier for the region
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string RegionId { get; set; }
 
         /// <summary>
         /// Public name for this region
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string Name { get; set; }
     }
 }

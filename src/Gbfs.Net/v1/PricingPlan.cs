@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Gbfs.Net.v1
 {
     /// <summary>
@@ -8,9 +10,7 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// A unique identifier for this plan in the system
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string PlanId { get; set; }
 
         /// <summary>
@@ -24,25 +24,19 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Name of this pricing scheme
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string Name { get; set; }
 
         /// <summary>
         /// Currency this pricing is in (ISO 4217 code: http://en.wikipedia.org/wiki/ISO_4217)
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Fee for this pricing scheme. This should be in the base unit as defined by the ISO 4217 currency code with the appropriate number of decimal places and omitting the currency symbol. e.g. if the price is in US Dollars the price would be 9.95
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public decimal Price { get; set; }
 
         /// <summary>
@@ -57,17 +51,13 @@ namespace Gbfs.Net.v1
         ///   </item>
         /// </list>
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public bool IsTaxable { get; set; }
 
         /// <summary>
         /// Text field describing the particular pricing plan in human readable terms.  This should include the duration, price, conditions, etc. that the publisher would like users to see. This is intended to be a human-readable description and should not be used for automatic calculations
         /// </summary>
-        /// <remarks>
-        /// This property is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string Description { get; set; }
 
     }

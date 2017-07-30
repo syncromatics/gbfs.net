@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Gbfs.Net.v1
 {
     /// <summary>
@@ -9,25 +11,19 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// ID field - identifier for this bike share system. This should be globally unique (even between different systems) and it is currently up to the publisher of the feed to guarantee uniqueness. In addition, this value is intended to remain the same over the life of the system
         /// </summary>
-        /// <remarks>
-        /// This field is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string SystemId { get; set; }
 
         /// <summary>
         /// An IETF language tag indicating the language that will be used throughout the rest of the files. This is a string that defines a single language tag only. See https://tools.ietf.org/html/bcp47 and https://en.wikipedia.org/wiki/IETF_language_tag for details about the format of this tag
         /// </summary>
-        /// <remarks>
-        /// This field is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string Language { get; set; }
 
         /// <summary>
         /// Full name of the system to be displayed to customers
         /// </summary>
-        /// <remarks>
-        /// This field is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string Name { get; set; }
 
         /// <summary>
@@ -89,9 +85,7 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// The time zone where the system is located. Time zone names never contain the space character but may contain an underscore. Please refer to the "TZ" value in https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for a list of valid values
         /// </summary>
-        /// <remarks>
-        /// This field is required.
-        /// </remarks>
+        [JsonProperty(Required = Required.Always)]
         public string Timezone { get; set; }
 
         /// <summary>

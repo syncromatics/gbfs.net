@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Gbfs.Net.v1
 {
@@ -13,6 +14,7 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Array that contains one object per station in the system
         /// </summary>
-        public List<Station> Stations { get; set; }
+        [JsonProperty(Required = Required.Always)]
+        public List<Station> Stations { get; set; } = new List<Station>();
     }
 }

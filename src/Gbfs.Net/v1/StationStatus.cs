@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Gbfs.Net.v1
 {
     /// <summary>
@@ -8,6 +10,7 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Object containing the data fields for this response
         /// </summary>
+        [JsonProperty(Required = Required.Always)]
         public override StationStatusData Data { get; set; }
     }
 }

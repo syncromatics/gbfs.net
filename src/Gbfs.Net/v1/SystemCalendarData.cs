@@ -10,6 +10,6 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Array of year objects describing the system operational calendar. A minimum of one calendar object is required, which could indicate a general calendar, or multiple calendars could be present indicating arbitrary start and end dates.
         /// </summary>
-        public List<Calendar> Calendars { get; set; }
+        public List<Calendar> Calendars { get; set; } = new List<Calendar>();
     }
 }

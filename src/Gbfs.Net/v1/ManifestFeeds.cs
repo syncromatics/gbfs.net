@@ -10,6 +10,6 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// An array of all of the feeds that are published by this auto-discovery file
         /// </summary>
-        public List<Feed> Feeds { get; set; }
+        public List<Feed> Feeds { get; set; } = new List<Feed>();
     }
 }

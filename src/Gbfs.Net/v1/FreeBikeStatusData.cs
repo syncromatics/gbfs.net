@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Gbfs.Net.v1
 {
@@ -10,6 +11,7 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Array that contains one object per bike that is currently docked/stopped outside of the system.
         /// </summary>
-        public List<Bike> Bikes { get; set; }
+        [JsonProperty(Required = Required.Always)]
+        public List<Bike> Bikes { get; set; } = new List<Bike>();
     }
 }

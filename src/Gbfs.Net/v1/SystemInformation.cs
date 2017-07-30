@@ -1,4 +1,5 @@
 using System;
+using Newtonsoft.Json;
 
 namespace Gbfs.Net.v1
 {
@@ -10,6 +11,7 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Object containing the data fields for this response
         /// </summary>
+        [JsonProperty(Required = Required.Always)]
         public override SystemInformationData Data { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
