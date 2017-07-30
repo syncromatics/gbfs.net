@@ -9,9 +9,6 @@ dotnet: 1.0.0-preview2-003121
 services:
   - docker
 
-install:
-  - git fetch --unshallow --tags
-
 script:
   - ./build.sh
 
