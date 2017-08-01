@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Gbfs.Net.v1
 {
     public abstract class GbfsFile<T> : IGbfsFile<T>
@@ -10,6 +12,7 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Integer representing the number of seconds before the data in this feed will be updated again (0 if the data should always be refreshed)
         /// </summary>
+        [JsonProperty("ttl")]
         public virtual long TimeToLive { get; set; }
 
         /// <summary>
