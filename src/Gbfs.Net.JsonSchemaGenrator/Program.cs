@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using CommandLine;
 using CommandLine.Text;
 using Gbfs.Net.v1;
@@ -14,9 +15,14 @@ namespace Gbfs.Net.JsonSchemaGenrator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            var options = new Options();
-            if (!CommandLine.Parser.Default.ParseArguments(args, options))
+            var error = false;
+            var options = CommandLine.Parser.Default.ParseArguments<Options>(args)
+                .MapResult(x => x, x => {
+                    error = true;
+                    return new Options();
+                });
+
+            if (error)
             {
                 Console.Error.WriteLine("Invalid arguments");
                 return;
@@ -28,10 +34,12 @@ namespace Gbfs.Net.JsonSchemaGenrator
             switch (options.SpecificationVersion)
             {
                 case SpecificationVersion.v1:
-                    var types = typeof(Gbfs.Net.v1.Manifest).Assembly.GetTypes()
+                    var types = LoadAssembly<Gbfs.Net.v1.Manifest>().GetTypes()
+                        .Select(t => t.GetTypeInfo())
                         .Where(t => !t.IsAbstract && !t.IsSealed)
                         .Where(t => t.GetInterfaces()
-                            .Any(i => i.GetGenericTypeDefinition() == typeof(IGbfsFile<>)));
+                            .Any(i => i.GetGenericTypeDefinition() == typeof(IGbfsFile<>)))
+                        .Select(t => t.AsType());
 
                     foreach (var type in types)
                     {
@@ -55,6 +63,14 @@ namespace Gbfs.Net.JsonSchemaGenrator
                     throw new ArgumentOutOfRangeException(nameof(SpecificationVersion), "Specification version not supported");
             }
         }
+
+        private static Assembly LoadAssembly<TSeed>()
+        {
+            var manifestType = typeof(TSeed);
+            var assemblyNameString = string.Join(",", manifestType.AssemblyQualifiedName.Split(',').Skip(1));
+            var assemblyName = new AssemblyName(assemblyNameString);
+            return System.Reflection.Assembly.Load(assemblyName);
+        }
     }
 
     public enum SpecificationVersion
@@ -65,7 +81,7 @@ namespace Gbfs.Net.JsonSchemaGenrator
     public class Options
     {
         [Option('v', "version",
-            DefaultValue = SpecificationVersion.v1,
+            Default = SpecificationVersion.v1,
             HelpText = "Version of the specification to generate JSON schemas for")]
         public SpecificationVersion SpecificationVersion { get; set; }
 
@@ -74,10 +90,10 @@ namespace Gbfs.Net.JsonSchemaGenrator
             HelpText = "Directory to write JSON schemas to")]
         public string OutputDirectory {get;set;}
 
-        [HelpOption]
-        public string GetUsage()
-        {
-            return HelpText.AutoBuild(this, (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
-        }
+        //[HelpOption]
+        //public string GetUsage()
+        //{
+        //    return HelpText.AutoBuild(this, (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
+        //}
     }
 }
