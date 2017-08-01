@@ -12,6 +12,6 @@ namespace Gbfs.Net.v1
         /// Object containing the data fields for this response
         /// </summary>
         [JsonProperty(Required = Required.Always)]
-        public override SystemInformationData Data { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override SystemInformationData Data { get; set; }
     }
 }

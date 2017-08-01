@@ -14,6 +14,6 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Dictionary keyed by language that all of the contained files will be published in. This language must match the value in the <c>system_information</c> file.
         /// </summary>
-        public override Dictionary<string, ManifestFeeds> Data { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override Dictionary<string, ManifestFeeds> Data { get; set; }
     }
 }
