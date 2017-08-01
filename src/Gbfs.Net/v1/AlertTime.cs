@@ -2,6 +2,9 @@ using Newtonsoft.Json;
 
 namespace Gbfs.Net.v1
 {
+    /// <summary>
+    /// Range of time that an alert may be in effect
+    /// </summary>
     public class AlertTime
     {
         /// <summary>

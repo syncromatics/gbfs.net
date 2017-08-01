@@ -28,7 +28,7 @@ namespace Gbfs.Net.v1
         public string Type { get; set; }
 
         /// <summary>
-        /// Array alert times indicating when the alert is in effect (e.g. when the system or station is actually closed, or when it is scheduled to be moved). If this array is omitted then the alert should be displayed as long as it is in the feed.
+        /// Array of alert times indicating when the alert is in effect (e.g. when the system or station is actually closed, or when it is scheduled to be moved). If this array is omitted then the alert should be displayed as long as it is in the feed.
         /// </summary>
         /// <remarks>
         /// This property is optional.

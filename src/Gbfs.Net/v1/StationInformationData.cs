@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Gbfs.Net.v1
 {
-    /// <sumamry>
+    /// <summary>
     /// All stations contained in this list are considered public (ie, can be shown on a map for public use).
     /// </summary>
     /// <remarks>

@@ -6,8 +6,14 @@ using RestEase;
 
 namespace Gbfs.Net.v1
 {
+    /// <summary>
+    /// Client to interact with a GBFS feed
+    /// </summary>
     public static class GbfsClient
     {
+        /// <summary>
+        /// JSON serialization settings
+        /// </summary>
         public static readonly JsonSerializerSettings JsonSerializerSettings = new JsonSerializerSettings()
         {
             ContractResolver = new DefaultContractResolver

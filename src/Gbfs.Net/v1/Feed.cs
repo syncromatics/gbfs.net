@@ -1,8 +1,8 @@
 namespace Gbfs.Net.v1
 {
-    /// <sumamry>
+    /// <summary>
     /// A feed published by this auto-discovery file
-    /// </sumamry>
+    /// </summary>
     public class Feed
     {
         /// <summary>

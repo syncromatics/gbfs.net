@@ -4,7 +4,7 @@ namespace Gbfs.Net.v1
 {
     /// <summary>
     /// Describes the system hours of operation.
-    /// </sumamry>
+    /// </summary>
     public class SystemHoursData
     {
         /// <summary>

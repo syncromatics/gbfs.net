@@ -1,5 +1,8 @@
 namespace Gbfs.Net.v1
 {
+    /// <summary>
+    /// Represents the common format of GBFS data
+    /// </summary>
     public interface IGbfsFile<T>
     {
         /// <summary>

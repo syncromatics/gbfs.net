@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 namespace Gbfs.Net.v1
 {
+    /// <summary>
+    /// Object containing the data fields for the station status response
+    /// </summary>
     public class StationStatusData
     {
         /// <summary>

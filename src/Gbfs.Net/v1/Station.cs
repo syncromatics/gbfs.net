@@ -57,7 +57,7 @@ namespace Gbfs.Net.v1
         public string CrossStreet { get; set; }
 
         /// <summary>
-        /// ID of the region where station is located (<see cref="SystemRegion" />)
+        /// ID of the region where station is located (<see cref="SystemRegions" />)
         /// </summary>
         /// <remarks>
         /// This field is optional.

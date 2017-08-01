@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Gbfs.Net.v1
 {
-    /// <sumamry>
+    /// <summary>
     /// This feed is intended to inform customers about changes to the system that do not fall within the normal system operations.
     /// </summary>
     /// <remarks>

@@ -4,6 +4,10 @@
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
   </PropertyGroup>
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Gbfs.Net.xml</DocumentationFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="RestEase" Version="1.4.1" />
     <PackageReference Include="System.Net.Http" Version="4.3.2" />
