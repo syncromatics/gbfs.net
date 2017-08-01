@@ -27,10 +27,10 @@ namespace Gbfs.Net.v1
         public string Name { get; set; }
 
         /// <summary>
-        /// This field is optional. abbreviation for a system
+        /// Abbreviation for a system
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public string ShortName { get; set; }
 
@@ -38,7 +38,7 @@ namespace Gbfs.Net.v1
         /// Name of the operator of the system
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public string Operator { get; set; }
 
@@ -46,7 +46,7 @@ namespace Gbfs.Net.v1
         /// The URL of the bike share system. The value must be a fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped. See http://www.w3.org/Addressing/URL/4_URI_Recommentations.html for a description of how to create fully qualified URL values
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public string Url { get; set; }
 
@@ -54,7 +54,7 @@ namespace Gbfs.Net.v1
         /// A fully qualified URL where a customer can purchase a membership or learn more about purchasing memberships
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public string PurchaseUrl { get; set; }
 
@@ -62,7 +62,7 @@ namespace Gbfs.Net.v1
         /// String in the form YYYY-MM-DD representing the date that the system began operations
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public string StartDate { get; set; }
 
@@ -70,7 +70,7 @@ namespace Gbfs.Net.v1
         /// A single voice telephone number for the specified system. This field is a string value that presents the telephone number as typical for the system's service area. It can and should contain punctuation marks to group the digits of the number. Dialable text (for example, Capital Bikeshare’s  "877-430-BIKE") is permitted, but the field must not contain any other descriptive text
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public string PhoneNumber { get; set; }
 
@@ -78,7 +78,7 @@ namespace Gbfs.Net.v1
         /// A single contact email address for customers to address questions about the system
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public string Email { get; set; }
 
@@ -92,7 +92,7 @@ namespace Gbfs.Net.v1
         /// A fully qualified URL of a page that defines the license terms for the GBFS data for this system, as well as any other license terms the system would like to define (including the use of corporate trademarks, etc)
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public string LicenseUrl { get; set; }
 

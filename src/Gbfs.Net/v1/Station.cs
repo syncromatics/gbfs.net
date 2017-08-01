@@ -44,7 +44,7 @@ namespace Gbfs.Net.v1
         /// Valid street number and name where station is located. This field is intended to be an actual address, not a free form text description (<see cref="CrossStreet" />)
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public string Address { get; set; }
 
@@ -52,7 +52,7 @@ namespace Gbfs.Net.v1
         /// Cross street of where the station is located. This field is intended to be a descriptive field for human consumption. In cities, this would be a cross street, but could also be a description of a location in a park, etc.
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public string CrossStreet { get; set; }
 
@@ -60,7 +60,7 @@ namespace Gbfs.Net.v1
         /// ID of the region where station is located (<see cref="SystemRegions" />)
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public string RegionId { get; set; }
 
@@ -68,7 +68,7 @@ namespace Gbfs.Net.v1
         /// Postal code where station is located
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public string PostCode { get; set; }
 
@@ -109,7 +109,7 @@ namespace Gbfs.Net.v1
         /// </para>
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
         public List<string> RentalMethods { get; set; } = new List<string>();
 
@@ -117,8 +117,8 @@ namespace Gbfs.Net.v1
         /// Number of total docking points installed at this station, both available and unavailable
         /// </summary>
         /// <remarks>
-        /// This field is optional.
+        /// This property is optional.
         /// </remarks>
-        public int Capacity { get; set; }
+        public int? Capacity { get; set; }
     }
 }

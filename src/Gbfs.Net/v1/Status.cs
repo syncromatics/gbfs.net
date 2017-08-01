@@ -26,7 +26,7 @@ namespace Gbfs.Net.v1
         /// This property is optional.
         /// Vendors who do not want to publicize the number of disabled bikes or docks in their system can opt to omit station capacity (in <see cref="StationInformation" />), <see cref="NumBikesDisabled"/> and <see cref="NumDocksDisabled"/>. If station capacity is published then broken docks/bikes can be inferred (though not specifically whether the decreased capacity is a broken bike or dock)
         /// </remarks>
-        public int NumBikesDisabled { get; set; }
+        public int? NumBikesDisabled { get; set; }
 
         /// <summary>
         /// Number of docks accepting bike returns.
@@ -40,7 +40,7 @@ namespace Gbfs.Net.v1
         /// <remarks>
         /// This property is optional.
         /// </remarks>
-        public int NumDocksDisabled { get; set; }
+        public int? NumDocksDisabled { get; set; }
 
         /// <summary>
         /// Is the station currently on the street

@@ -25,7 +25,7 @@ namespace Gbfs.Net.v1
         /// <remarks>
         /// This property is optional.
         /// </remarks>
-        public ushort StartYear { get; set; }
+        public ushort? StartYear { get; set; }
 
         /// <summary>
         /// Ending month for the system operations (1-12)
@@ -45,7 +45,7 @@ namespace Gbfs.Net.v1
         /// <remarks>
         /// This property is optional.
         /// </remarks>
-        public ushort EndYear { get; set; }
+        public ushort? EndYear { get; set; }
 
     }
 }

@@ -79,6 +79,6 @@ namespace Gbfs.Net.v1
         /// <remarks>
         /// This property is optional.
         /// </remarks>
-        public long LastUpdated { get; set; }
+        public long? LastUpdated { get; set; }
     }
 }

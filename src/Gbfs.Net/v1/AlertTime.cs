@@ -19,6 +19,6 @@ namespace Gbfs.Net.v1
         /// <remarks>
         /// This property is optional.
         /// </remarks>
-        public long End { get; set; }
+        public long? End { get; set; }
     }
 }
