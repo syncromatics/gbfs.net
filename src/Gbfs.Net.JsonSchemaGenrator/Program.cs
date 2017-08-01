@@ -6,6 +6,7 @@ using CommandLine.Text;
 using Gbfs.Net.v1;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
+using Newtonsoft.Json.Serialization;
 
 namespace Gbfs.Net.JsonSchemaGenrator
 {
@@ -39,8 +40,13 @@ namespace Gbfs.Net.JsonSchemaGenrator
                             Directory.CreateDirectory(options.OutputDirectory);
                         }
 
-                        var path = Path.Combine(options.OutputDirectory, $"{type.Name}.json");
                         var jsonSchema = schemaGenerator.Generate(type).ToString();
+                        var fileName = new SnakeCaseNamingStrategy().GetPropertyName(type.Name, false);
+                        if (type == typeof(Manifest))
+                        {
+                            fileName = "gbfs";
+                        }
+                        var path = Path.Combine(options.OutputDirectory, $"{fileName}.json");
                         File.WriteAllText(path, jsonSchema);
                         Console.WriteLine($"Wrote schema for {type.Name} to {path}...");
                     }
