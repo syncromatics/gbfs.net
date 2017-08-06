@@ -51,15 +51,21 @@ namespace Gbfs.Net.JsonSchemaGenerator
                         }
 
                         var schema = schemaGenerator.Generate(type);
-                        // schema.PatternProperties.Add("pattern here", schema.AdditionalProperties);
-                        var jsonSchema = schema.ToString();
                         var fileName = new SnakeCaseNamingStrategy().GetPropertyName(type.Name, false);
                         if (type == typeof(Manifest))
                         {
+                            // Manually set filename to match spec
                             fileName = "gbfs";
+
+                            // Rearrange Json.NET's handling for Dictionaries to allow for a JSON Schema pattern property
+                            var dataSchema = schema.Properties["data"];
+                            var languageFeedSchema = dataSchema.AdditionalProperties;
+                            languageFeedSchema.MinimumProperties = 1;
+                            dataSchema.PatternProperties[Resources.ItefSingleLanguageTagPattern] = languageFeedSchema;
+                            dataSchema.AdditionalProperties = new JSchema();
                         }
                         var path = Path.Combine(outputDirectory, $"{fileName}.json");
-                        File.WriteAllText(path, jsonSchema);
+                        File.WriteAllText(path, schema.ToString());
                         Console.WriteLine($"Wrote schema for {type.Name} to {path}...");
                     }
                     break;
@@ -93,11 +99,5 @@ namespace Gbfs.Net.JsonSchemaGenerator
             Required = true,
             HelpText = "Directory to write JSON schemas to")]
         public string OutputDirectory {get;set;}
-
-        //[HelpOption]
-        //public string GetUsage()
-        //{
-        //    return HelpText.AutoBuild(this, (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
-        //}
     }
 }

@@ -22,6 +22,7 @@ namespace Gbfs.Net.v1
         /// </summary>
         [Description("An IETF language tag indicating the language that will be used throughout the rest of the files. This is a string that defines a single language tag only. See https://tools.ietf.org/html/bcp47 and https://en.wikipedia.org/wiki/IETF_language_tag for details about the format of this tag")]
         [JsonProperty(Required = Required.Always)]
+        [RegularExpression(Resources.ItefSingleLanguageTagPattern)]
         public string Language { get; set; }
 
         /// <summary>
