@@ -5,12 +5,12 @@
    "version": "0.2.0",
    "configurations": [
         {
-            "name": ".NET Core Launch (console)",
+            "name": "Mono Launch (console)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceRoot}/src/Gbfs.Net.JsonSchemaGenrator/bin/Debug/netcoreapp1.0/Gbfs.Net.JsonSchemaGenrator.dll",
+            "program": "${workspaceRoot}/src/Gbfs.Net.JsonSchemaGenrator/bin/Debug/net46/Gbfs.Net.JsonSchemaGenrator.exe",
             "args": [
                 "-o ${workspaceRoot}/artifacts"
             ],
@@ -19,12 +19,6 @@
             "console": "internalConsole",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart"
-        },
-        {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickProcess}"
         }
     ]
 }

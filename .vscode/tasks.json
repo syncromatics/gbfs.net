@@ -1,16 +1,13 @@
 {
     "version": "0.1.0",
-    "command": "dotnet",
-    "isShellCommand": true,
-    "args": [],
+    "command": "msbuild",
+    "args": [
+        "/property:GenerateFullPaths=true"
+    ],
+    "taskSelector": "/t:",
     "tasks": [
         {
-            "taskName": "build",
-            "args": [
-                "${workspaceRoot}/src/Gbfs.Net.JsonSchemaGenrator/Gbfs.Net.JsonSchemaGenrator.csproj"
-            ],
-            "isBuildCommand": true,
-            "problemMatcher": "$msCompile"
+            "taskName": "build"
         }
     ]
 }
