@@ -41,11 +41,12 @@ namespace Gbfs.Net.JsonSchemaGenrator
                             .Any(i => i.GetGenericTypeDefinition() == typeof(IGbfsFile<>)))
                         .Select(t => t.AsType());
 
+                    var outputDirectory = options.OutputDirectory.Trim();
                     foreach (var type in types)
                     {
-                        if (!Directory.Exists(options.OutputDirectory))
+                        if (!Directory.Exists(outputDirectory))
                         {
-                            Directory.CreateDirectory(options.OutputDirectory);
+                            Directory.CreateDirectory(outputDirectory);
                         }
 
                         var jsonSchema = schemaGenerator.Generate(type).ToString();
@@ -54,7 +55,7 @@ namespace Gbfs.Net.JsonSchemaGenrator
                         {
                             fileName = "gbfs";
                         }
-                        var path = Path.Combine(options.OutputDirectory, $"{fileName}.json");
+                        var path = Path.Combine(outputDirectory, $"{fileName}.json");
                         File.WriteAllText(path, jsonSchema);
                         Console.WriteLine($"Wrote schema for {type.Name} to {path}...");
                     }
