@@ -9,7 +9,7 @@ using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
 using Newtonsoft.Json.Serialization;
 
-namespace Gbfs.Net.JsonSchemaGenrator
+namespace Gbfs.Net.JsonSchemaGenerator
 {
     class Program
     {
@@ -51,6 +51,7 @@ namespace Gbfs.Net.JsonSchemaGenrator
                         }
 
                         var schema = schemaGenerator.Generate(type);
+                        // schema.PatternProperties.Add("pattern here", schema.AdditionalProperties);
                         var jsonSchema = schema.ToString();
                         var fileName = new SnakeCaseNamingStrategy().GetPropertyName(type.Name, false);
                         if (type == typeof(Manifest))

@@ -10,11 +10,11 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceRoot}/src/Gbfs.Net.JsonSchemaGenrator/bin/Debug/net46/Gbfs.Net.JsonSchemaGenrator.exe",
+            "program": "${workspaceRoot}/src/Gbfs.Net.JsonSchemaGenerator/bin/Debug/net46/Gbfs.Net.JsonSchemaGenerator.exe",
             "args": [
                 "-o ${workspaceRoot}/artifacts"
             ],
-            "cwd": "${workspaceRoot}/src/Gbfs.Net.JsonSchemaGenrator",
+            "cwd": "${workspaceRoot}/src/Gbfs.Net.JsonSchemaGenerator",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
             "console": "internalConsole",
             "stopAtEntry": false,

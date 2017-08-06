@@ -6,7 +6,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gbfs.Net", "src\Gbfs.Net\Gb
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{68EE321A-04FB-419C-9DF7-7068162BD4F7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gbfs.Net.JsonSchemaGenrator", "src\Gbfs.Net.JsonSchemaGenrator\Gbfs.Net.JsonSchemaGenrator.csproj", "{3958D9DD-32C1-40DB-8116-113341E8F30A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gbfs.Net.JsonSchemaGenerator", "src\Gbfs.Net.JsonSchemaGenerator\Gbfs.Net.JsonSchemaGenerator.csproj", "{3958D9DD-32C1-40DB-8116-113341E8F30A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

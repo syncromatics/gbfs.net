@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Gbfs.Net.JsonSchemaGenrator": {
+    "Gbfs.Net.JsonSchemaGenerator": {
       "commandName": "Project",
       "commandLineArgs": "-o ../../artifacts"
     }

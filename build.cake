@@ -66,10 +66,13 @@ Task("AssignVersion")
 
     });
 
-
 Task("Build")
     .IsDependentOn("AssignVersion")
     .Does(() => RunTargetInContainer("ContainerBuild", "--verbosity Diagnostic"));
+
+Task("RunSchemaGenerator")
+    .IsDependentOn("AssignVersion")
+    .Does(() => RunTargetInContainer("ContainerRunSchemaGenerator", "--verbosity Diagnostic"));
 
 Task("Publish")
     .IsDependentOn("Build")
