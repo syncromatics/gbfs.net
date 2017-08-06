@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Newtonsoft.Json;
 
 namespace Gbfs.Net.v1
@@ -5,15 +6,13 @@ namespace Gbfs.Net.v1
     /// <summary>
     /// Describes current system alerts.
     /// </summary>
-    /// <remarks>
-    /// This file is optional.
-    /// </remarks>
+    [Description("Describes current system alerts.")]
     public class SystemAlerts : GbfsFile<SystemAlertsData>
     {
         /// <summary>
         /// Object containing the data fields for this response
         /// </summary>
-        [JsonProperty(Required = Required.Always)]
+        [Description("Object containing the data fields for this response")]
         public override SystemAlertsData Data {get;set;}
     }
 }

@@ -31,6 +31,7 @@ namespace Gbfs.Net.JsonSchemaGenrator
             Console.WriteLine($"Generating schemas for version {options.SpecificationVersion}");
             var schemaGenerator = new JSchemaGenerator();
             schemaGenerator.ContractResolver = GbfsClient.JsonSerializerSettings.ContractResolver;
+            schemaGenerator.GenerationProviders.Add(new StringEnumGenerationProvider());
             switch (options.SpecificationVersion)
             {
                 case SpecificationVersion.v1:
@@ -49,7 +50,8 @@ namespace Gbfs.Net.JsonSchemaGenrator
                             Directory.CreateDirectory(outputDirectory);
                         }
 
-                        var jsonSchema = schemaGenerator.Generate(type).ToString();
+                        var schema = schemaGenerator.Generate(type);
+                        var jsonSchema = schema.ToString();
                         var fileName = new SnakeCaseNamingStrategy().GetPropertyName(type.Name, false);
                         if (type == typeof(Manifest))
                         {

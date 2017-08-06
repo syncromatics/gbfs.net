@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Newtonsoft.Json;
 
 namespace Gbfs.Net.v1
@@ -5,15 +6,13 @@ namespace Gbfs.Net.v1
     /// <summary>
     /// Describes the regions the system is broken up into.
     /// </summary>
-    /// <remarks>
-    /// This file is optional.
-    /// </remarks>
+    [Description("Describes the regions the system is broken up into.")]
     public class SystemRegions : GbfsFile<SystemRegionsData>
     {
         /// <summary>
         /// Object containing the data fields for this response
         /// </summary>
-        [JsonProperty(Required = Required.Always)]
+        [Description("Object containing the data fields for this response")]
         public override SystemRegionsData Data { get; set; }
     }
 }

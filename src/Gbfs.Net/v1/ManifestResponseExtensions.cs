@@ -12,7 +12,7 @@ namespace Gbfs.Net.v1
         /// <summary>
         /// Gets a feed from the <paramref ref="manifest" /> for the given <paramref ref="language" />
         /// </summary>
-        public static Feed GetFeed(Manifest manifest, IGbfsApi api, string language, string name)
+        public static Feed GetFeed(Manifest manifest, IGbfsApi api, string language, FeedName name)
         {
             if (manifest == null) throw new ArgumentNullException(nameof(manifest));
             if (api == null) throw new ArgumentNullException(nameof(api));
@@ -30,7 +30,7 @@ namespace Gbfs.Net.v1
         /// </summary>
         public static Task<SystemInformation> GetSystemInformation(this Manifest manifest, IGbfsApi api, string language)
         {
-            var feed = GetFeed(manifest, api, language, "system_information");
+            var feed = GetFeed(manifest, api, language, FeedName.SystemInformation);
 
             return api.GetSystemInformation(feed.Url);
         }
@@ -40,7 +40,7 @@ namespace Gbfs.Net.v1
         /// </summary>
         public static Task<StationInformation> GetStationInformation(this Manifest manifest, IGbfsApi api, string language)
         {
-            var feed = GetFeed(manifest, api, language, "station_information");
+            var feed = GetFeed(manifest, api, language, FeedName.StationInformation);
 
             return api.GetStationInformation(feed.Url);
         }
@@ -50,7 +50,7 @@ namespace Gbfs.Net.v1
         /// </summary>
         public static Task<StationStatus> GetStationStatus(this Manifest manifest, IGbfsApi api, string language)
         {
-            var feed = GetFeed(manifest, api, language, "station_status");
+            var feed = GetFeed(manifest, api, language, FeedName.StationStatus);
 
             return api.GetStationStatus(feed.Url);
         }
@@ -60,7 +60,7 @@ namespace Gbfs.Net.v1
         /// </summary>
         public static Task<FreeBikeStatus> GetFreeBikeStatus(this Manifest manifest, IGbfsApi api, string langauge)
         {
-            var feed = GetFeed(manifest, api, langauge, "free_bike_status");
+            var feed = GetFeed(manifest, api, langauge, FeedName.FreeBikeStatus);
 
             return api.GetFreeBikeStatus(feed.Url);
         }
@@ -70,7 +70,7 @@ namespace Gbfs.Net.v1
         /// </summary>
         public static Task<SystemHours> GetSystemHours(this Manifest manifest, IGbfsApi api, string langauge)
         {
-            var feed = GetFeed(manifest, api, langauge, "system_hours");
+            var feed = GetFeed(manifest, api, langauge, FeedName.SystemHours);
 
             return api.GetSystemHours(feed.Url);
         }
@@ -80,7 +80,7 @@ namespace Gbfs.Net.v1
         /// </summary>
         public static Task<SystemCalendar> GetSystemCalendar(this Manifest manifest, IGbfsApi api, string langauge)
         {
-            var feed = GetFeed(manifest, api, langauge, "system_calendar");
+            var feed = GetFeed(manifest, api, langauge, FeedName.SystemCalendar);
 
             return api.GetSystemCalendar(feed.Url);
         }
@@ -90,7 +90,7 @@ namespace Gbfs.Net.v1
         /// </summary>
         public static Task<SystemRegions> GetSystemRegions(this Manifest manifest, IGbfsApi api, string langauge)
         {
-            var feed = GetFeed(manifest, api, langauge, "system_regions");
+            var feed = GetFeed(manifest, api, langauge, FeedName.SystemRegions);
 
             return api.GetSystemRegions(feed.Url);
         }
@@ -100,7 +100,7 @@ namespace Gbfs.Net.v1
         /// </summary>
         public static Task<SystemPricingPlans> GetSystemPricingPlans(this Manifest manifest, IGbfsApi api, string langauge)
         {
-            var feed = GetFeed(manifest, api, langauge, "system_pricing_plans");
+            var feed = GetFeed(manifest, api, langauge, FeedName.SystemPricingPlans);
 
             return api.GetSystemPricingPlans(feed.Url);
         }
@@ -110,7 +110,7 @@ namespace Gbfs.Net.v1
         /// </summary>
         public static Task<SystemAlerts> GetSystemAlerts(this Manifest manifest, IGbfsApi api, string langauge)
         {
-            var feed = GetFeed(manifest, api, langauge, "system_alerts");
+            var feed = GetFeed(manifest, api, langauge, FeedName.SystemAlerts);
 
             return api.GetSystemAlerts(feed.Url);
         }
