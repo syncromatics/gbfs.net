@@ -65,6 +65,7 @@ namespace Gbfs.Net.v1
         0 indicates that no additional tax will be added (either because tax is not charged, or because it is included)
         1 indicates that tax will be added to the base price")]
         [JsonProperty("is_taxable", Required = Required.Always)]
+        [Range(0, 1)]
         private int _isTaxable {get;set;}
 
         /// <summary>
