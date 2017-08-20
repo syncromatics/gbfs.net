@@ -6,6 +6,12 @@ Library to interact with General Bikeshare Feed Specification (GBFS) resources
 
 More information on the GBFS specification at https://github.com/NABSA/gbfs
 
+## Quickstart
+
+```csharp
+
+```
+
 ## Building
 
 This library is built using Cake and a Docker image. To build and test:

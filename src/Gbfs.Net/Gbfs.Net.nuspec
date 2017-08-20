@@ -18,6 +18,8 @@
   <files>
     <file src="bin\$configuration$\net46\Gbfs.Net.dll" target="lib\net46" />
     <file src="bin\$configuration$\net46\Gbfs.Net.pdb" target="lib\net46" />
+    <file src="bin\$configuration$\net46\Gbfs.Net.xml" target="lib\net46" />
+    <file src="bin\$configuration$\net46\Gbfs.Net.xml" target="lib\netstandard1.3" />
     <file src="bin\$configuration$\netstandard1.3\Gbfs.Net.dll" target="lib\netstandard1.3" />
     <file src="bin\$configuration$\netstandard1.3\Gbfs.Net.pdb" target="lib\netstandard1.3" />
   </files>

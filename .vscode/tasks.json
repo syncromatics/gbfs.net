@@ -1,0 +1,13 @@
+{
+    "version": "0.1.0",
+    "command": "msbuild",
+    "args": [
+        "/property:GenerateFullPaths=true"
+    ],
+    "taskSelector": "/t:",
+    "tasks": [
+        {
+            "taskName": "build"
+        }
+    ]
+}

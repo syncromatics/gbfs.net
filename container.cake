@@ -35,3 +35,21 @@ Task("Compile")
 
 Task("ContainerBuild")
     .IsDependentOn("Compile");
+
+Task("ContainerRunSchemaGenerator")
+    .IsDependentOn("ContainerBuild")
+    .Does(() =>
+    {
+        var schemaGeneratorSettings = new ProcessSettings
+        {
+            Arguments = $"src/Gbfs.Net.JsonSchemaGenerator/bin/{configuration}/net46/Gbfs.Net.JsonSchemaGenerator.exe -v 1 -o artifacts/",
+        };
+
+        using(var process = StartAndReturnProcess("mono", schemaGeneratorSettings))
+        {
+            process.WaitForExit();
+            var exitCode = process.GetExitCode();
+            if(exitCode != 0)
+                throw new Exception("Schema Generation Failed.");
+        }
+    });

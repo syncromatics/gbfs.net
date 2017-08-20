@@ -38,6 +38,13 @@ Task("GetVersion")
     {
         var repositoryPath = Directory(".");
         var branch = GitBranchCurrent(repositoryPath).FriendlyName;
+        Information($"GetVersion: Current branch is {branch}");
+        var travisBranch = EnvironmentVariable("TRAVIS_BRANCH");
+        if (branch == "(no branch)" && !string.IsNullOrEmpty(travisBranch))
+        {
+            branch = travisBranch;
+        }
+        Information($"GetVersion: Current branch (after Travis) is {branch}");
         var prereleaseTag = Regex.Replace(branch, @"\W+", "-");
         var describe = GitDescribe(repositoryPath, GitDescribeStrategy.Tags);
 
@@ -59,10 +66,13 @@ Task("AssignVersion")
 
     });
 
-
 Task("Build")
     .IsDependentOn("AssignVersion")
     .Does(() => RunTargetInContainer("ContainerBuild", "--verbosity Diagnostic"));
+
+Task("RunSchemaGenerator")
+    .IsDependentOn("AssignVersion")
+    .Does(() => RunTargetInContainer("ContainerRunSchemaGenerator", "--verbosity Diagnostic"));
 
 Task("Publish")
     .IsDependentOn("Build")
