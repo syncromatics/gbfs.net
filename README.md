@@ -9,7 +9,39 @@ More information on the GBFS specification at https://github.com/NABSA/gbfs
 ## Quickstart
 
 ```csharp
+// Find a GBFS feed url. This one belongs to Los Angeles Metro
+var laMetroGbfsFeedUrl = "https://gbfs.bcycle.com/bcycle_lametro/gbfs.json";
 
+// Get an instance of the Gbfs.Net client
+var client = GbfsClient.GetInstance(laMetroGbfsFeedUrl);
+
+// Get the GBFS manifest, which includes references to the different feeds of information about this bikeshare system
+var manifest = await client.GetManifest();
+
+// Determine which language to refer to in the manifest. Here, if English is available, it is being preferred.
+var language = manifest.Data.ContainsKey("en") ? "en" : manifest.Data.Keys.First();
+
+// Get the bikeshare station information (Location, name, etc.)
+var stations = await manifest.GetStationInformation(client, language);
+
+// Find all the stations on Grand Ave.
+var selectedStations = stations.Data.Stations
+	.Where(s => s.Address.Contains("Grand Ave"))
+	.ToList();
+
+// Get the bikeshare station status (number of bikes and docks available, etc.)
+var statuses = await manifest.GetStationStatus(client, language);
+
+// Join the station and status information on StationId
+statuses.Data.Stations
+	.Join(selectedStations, s => s.StationId, s => s.StationId, (status, station) => new
+	{
+		Station = station,
+		Status = status,
+	})
+	.ToList()
+	// Write out some information about the stations
+	.ForEach(x => Console.WriteLine($"Station at {x.Station.Name} has {x.Status.NumBikesAvailable} bikes available and {x.Status.NumDocksAvailable} docks available"));
 ```
 
 ## Building
@@ -18,12 +50,12 @@ This library is built using Cake and a Docker image. To build and test:
 
 If running on windows
 
-```
-build.ps1 -Experimental
+```powershell
+.\build.ps1 -Experimental
 ```
 
 If Linux:
-```
+```bash
 ./build.sh
 ```
 

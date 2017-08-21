@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using RestEase;
 
@@ -20,6 +21,9 @@ namespace Gbfs.Net.v1
             {
                 NamingStrategy = new SnakeCaseNamingStrategy(),
             },
+            Converters = {
+                new StringEnumConverter(),
+            }
         };
 
         /// <summary>
