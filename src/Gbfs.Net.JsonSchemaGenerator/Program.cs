@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using CommandLine;
-using CommandLine.Text;
 using Gbfs.Net.v1;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
@@ -11,12 +10,12 @@ using Newtonsoft.Json.Serialization;
 
 namespace Gbfs.Net.JsonSchemaGenerator
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var error = false;
-            var options = CommandLine.Parser.Default.ParseArguments<Options>(args)
+            var options = Parser.Default.ParseArguments<Options>(args)
                 .MapResult(x => x, x => {
                     error = true;
                     return new Options();
@@ -29,13 +28,16 @@ namespace Gbfs.Net.JsonSchemaGenerator
             }
 
             Console.WriteLine($"Generating schemas for version {options.SpecificationVersion}");
-            var schemaGenerator = new JSchemaGenerator();
-            schemaGenerator.ContractResolver = GbfsClient.JsonSerializerSettings.ContractResolver;
+            var schemaGenerator = new JSchemaGenerator
+            {
+                ContractResolver = GbfsClient.JsonSerializerSettings.ContractResolver
+            };
             schemaGenerator.GenerationProviders.Add(new StringEnumGenerationProvider());
+            schemaGenerator.GenerationProviders.Add(new RangeSchemaProvider());
             switch (options.SpecificationVersion)
             {
                 case SpecificationVersion.v1:
-                    var types = LoadAssembly<Gbfs.Net.v1.Manifest>().GetTypes()
+                    var types = LoadAssembly<Manifest>().GetTypes()
                         .Select(t => t.GetTypeInfo())
                         .Where(t => !t.IsAbstract && !t.IsSealed)
                         .Where(t => t.GetInterfaces()
@@ -79,25 +81,7 @@ namespace Gbfs.Net.JsonSchemaGenerator
             var manifestType = typeof(TSeed);
             var assemblyNameString = string.Join(",", manifestType.AssemblyQualifiedName.Split(',').Skip(1));
             var assemblyName = new AssemblyName(assemblyNameString);
-            return System.Reflection.Assembly.Load(assemblyName);
+            return Assembly.Load(assemblyName);
         }
-    }
-
-    public enum SpecificationVersion
-    {
-        v1 = 1,
-    }
-
-    public class Options
-    {
-        [Option('v', "version",
-            Default = SpecificationVersion.v1,
-            HelpText = "Version of the specification to generate JSON schemas for")]
-        public SpecificationVersion SpecificationVersion { get; set; }
-
-        [Option('o', "output",
-            Required = true,
-            HelpText = "Directory to write JSON schemas to")]
-        public string OutputDirectory {get;set;}
     }
 }
