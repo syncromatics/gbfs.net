@@ -1,5 +1,4 @@
 using System.ComponentModel;
-using Newtonsoft.Json;
 
 namespace Gbfs.Net.v1
 {
