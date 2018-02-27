@@ -10,5 +10,5 @@ script:
   - dotnet build src/Gbfs.Net --configuration Release
   - "if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_TAG ]]; then 
   dotnet pack src/Gbfs.Net --configuration Release /p:Version=$TRAVIS_TAG;
-  dotnet nuget push src/Gbfs.Net/bin/Release/*.nupkg -k $NUGET_API_KEY;
+  dotnet nuget push src/Gbfs.Net/bin/Release/*.nupkg -k $NUGET_API_KEY -s https://www.nuget.org/api/v2/package;
   fi"
