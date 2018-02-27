@@ -1,4 +1,4 @@
-#addin "Cake.Docker"
+#addin nuget:?package=Cake.Docker&version=0.8.2
 #load "container.cake"
 #load "package.cake"
 
@@ -11,7 +11,7 @@ void RunTargetInContainer(string target, string arguments, params string[] inclu
         throw new Exception($"The following environment variables are required to be set: {string.Join(", ", missingEnv.Select(x => x.Key))}");
     }
 
-    var settings = new DockerRunSettings
+    var settings = new DockerContainerRunSettings
     {
         Volume = new string[] { $"{cwd}:/artifacts"},
         Workdir = "/artifacts",

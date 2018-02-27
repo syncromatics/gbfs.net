@@ -1,4 +1,4 @@
-#addin nuget:?package=Cake.Git
+#addin nuget:?package=Cake.Git&version=0.16.1
 using System.Text.RegularExpressions;
 
 var outputDirectory = Directory("packages");

@@ -1,4 +1,3 @@
-#tool "nuget:?package=xunit.runner.console"
 var configuration = Argument("configuration", "Release");
 
 Task("Clean")
