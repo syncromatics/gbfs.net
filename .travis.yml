@@ -1,20 +1,14 @@
 language: csharp
 
-os: linux # Ubuntu 14.04
+os: linux
 dist: trusty
-group: edge
 sudo: required
-dotnet: 1.0.0-preview2-003121
-
-services:
-  - docker
+dotnet: 2.0.0
 
 script:
-  - ./build.sh
-
-deploy:
-  provider: script
-  script:
-    - ./build.sh -t Publish
-  on:
-    all_branches: true
+  - dotnet restore
+  - dotnet build src/Gbfs.Net --configuration Release
+  - "if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_TAG ]]; then 
+  dotnet pack src/Gbfs.Net --configuration Release /p:Version=$TRAVIS_TAG;
+  dotnet nuget push src/Gbfs.Net/bin/Release/*.nupkg -k $NUGET_API_KEY;
+  fi"

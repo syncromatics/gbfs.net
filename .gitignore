@@ -1,8 +1,5 @@
 bin
 obj
 packages
-tools/*
-!tools/packages.config
-AssemblyInfo.cs
 artifacts
 .vs
