@@ -46,17 +46,22 @@ statuses.Data.Stations
 
 ## Building
 
-This library is built using Cake and a Docker image. To build and test:
+This library is built using .NET Core. To build:
 
-If running on windows
-
-```powershell
-.\build.ps1 -Experimental
+```bash
+dotnet build
 ```
 
-If Linux:
+Running the JSON Schema generator can be done via:
+
 ```bash
-./build.sh
+cd src/Gbfs.Net.JsonSchemaGenerator
+
+# Returns help
+dotnet run
+
+# Generates schema in the artifacts folder
+dotnet run -o artifacts
 ```
 
 ## Contributing

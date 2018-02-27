@@ -1,6 +1,5 @@
 bin
 obj
 packages
-tools
-AssemblyInfo.cs
 artifacts
+.vs

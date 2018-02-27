@@ -1,12 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net46;netstandard1.3</TargetFrameworks>
+    <TargetFramework>netstandard1.3</TargetFramework>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-  </PropertyGroup>
-  <PropertyGroup>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Gbfs.Net.xml</DocumentationFile>
+    <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageId>Gbfs.Net</PackageId>
+    <Version>0.0.0</Version>
+    <Title>Gbfs.Net</Title>
+    <Authors>Apps team at Syncromatics</Authors>
+    <Description>Library to interact with General Bikeshare Feed Specification (GBFS) resources</Description>
+    <Copyright>Copyright 2017 Synromatics Corporation</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/syncromatics/gbfs.net</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="RestEase" Version="1.4.1" />
